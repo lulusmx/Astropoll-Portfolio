@@ -1,0 +1,91 @@
+.ov {
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  color: #1a1a1a;
+  font-family: 'Myriad Pro', 'Segoe UI', Arial, sans-serif;
+  padding: 2vw 3vw;
+  display: flex;
+  flex-direction: column;
+  cursor: url('/images/curseur40.png') 0 0, auto;
+}
+
+.ov__brand {
+  font-family: 'Myriad Pro', 'Segoe UI', Arial, sans-serif;
+  font-size: clamp(0.8rem, 1vw, 1.2rem);
+  font-weight: 400;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+  margin: 0;
+}
+
+.ov__brand:hover {
+  opacity: 0.4;
+}
+
+.ov__line {
+  border: none;
+  border-top: 1px solid #1a1a1a;
+  margin: 1vw 0;
+}
+
+.ov__proposal {
+  font-size: clamp(0.8rem, 1vw, 1.2rem);
+  margin-bottom: 2vw;
+}
+
+/* Carousel */
+.ov__carousel {
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.ov__track {
+  display: flex;
+  gap: 3vw;
+  padding-bottom: 1vw;
+}
+
+.ov__slide {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20vw;
+}
+
+.ov__slide-img {
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ov__slide-img img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+.ov__slide-label {
+  font-size: clamp(0.6rem, 0.8vw, 0.9rem);
+  color: #999;
+  margin-top: 0.5vw;
+}
+
+/* Scrollbar */
+.ov__carousel::-webkit-scrollbar {
+  height: 4px;
+}
+
+.ov__carousel::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+.ov__carousel::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 2px;
+}

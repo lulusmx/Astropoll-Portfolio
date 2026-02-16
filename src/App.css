@@ -1,0 +1,222 @@
+/* ============================================
+   HOMEPAGE — FULL SCREEN LAYOUT
+   ============================================ */
+
+.homepage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Background image */
+.homepage__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.homepage__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Overlay content */
+.homepage__overlay {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5vw 3vw;
+  color: #CDFF00;
+}
+
+/* ============================================
+   TOP SECTION
+   ============================================ */
+.homepage__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Left — INNER */
+.homepage__title-block {
+  display: flex;
+  flex-direction: column;
+  margin-top: -0.5vw;
+}
+
+.homepage__date {
+  font-family: 'Myriad Pro', 'Segoe UI', Arial, sans-serif;
+  font-size: clamp(0.7rem, 1vw, 1.1rem);
+  letter-spacing: 0.1em;
+  opacity: 0.85;
+  margin-bottom: 0.4em;
+  margin-left: 2.7vw;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+}
+
+.homepage__date:hover {
+  opacity: 0.5;
+  transform: scale(1.1);
+}
+
+.homepage__subtitle {
+  font-family: 'Myriad Pro', 'Segoe UI', Arial, sans-serif;
+  font-size: clamp(0.75rem, 1.1vw, 1.2rem);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.9;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+}
+
+.homepage__subtitle:hover {
+  opacity: 0.5;
+  transform: scale(1.1);
+}
+
+.homepage__name-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6vw;
+}
+
+.homepage__title {
+  font-family: 'Newake', 'Impact', 'Arial Black', sans-serif;
+  font-size: clamp(6rem, 14vw, 17rem);
+  line-height: 0.85;
+  text-transform: uppercase;
+  font-weight: normal;
+  margin-left: 2.5vw;
+  letter-spacing: 0.02em;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+  position: relative;
+  background-image:
+    repeating-conic-gradient(#000 0% 25%, #fff 0% 50%);
+  background-size: 0.12em 0.12em;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.homepage__title::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: #CDFF00;
+  -webkit-text-fill-color: #CDFF00;
+  transition: opacity 0.6s ease;
+}
+
+.homepage__title:hover::after {
+  opacity: 0;
+}
+
+.homepage__title:hover {
+  opacity: 0.75;
+  transform: scale(1.03);
+}
+
+/* Right — Name + Nav */
+.homepage__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.5vw;
+}
+
+.homepage__name {
+  font-family: 'Newake', 'Impact', 'Arial Black', sans-serif;
+  font-size: clamp(2rem, 3.8vw, 4.2rem);
+  text-transform: uppercase;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.homepage__name:hover {
+  opacity: 0.7;
+  transform: scale(1.05);
+}
+
+.homepage__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6vw;
+  margin-top: 5vw;
+}
+
+.homepage__nav a {
+  font-family: 'Myriad Pro', 'Segoe UI', Arial, sans-serif;
+  font-size: clamp(1.3rem, 2.4vw, 2.6rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  transition: opacity 0.3s ease;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+}
+
+.homepage__nav a:hover {
+  opacity: 0.7;
+}
+
+/* ============================================
+   BOTTOM SECTION
+   ============================================ */
+.homepage__bottom {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* SHOP button */
+.homepage__shop {
+  display: inline-block;
+  font-family: 'Newake', 'Impact', 'Arial Black', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 4rem);
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #CDFF00;
+  border: 5px solid #CDFF00;
+  padding: 0.15em 0.4em;
+  text-align: center;
+  background: transparent;
+  transition: background 0.3s ease, color 0.3s ease;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+}
+
+.homepage__shop:hover {
+  background: #CDFF00;
+  color: #000;
+}
+
+/* Reticule logo */
+.homepage__logo {
+  position: fixed;
+  bottom: -3vw;
+  right: -3vw;
+  z-index: 9999;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.homepage__logo img {
+  display: block;
+  width: clamp(8rem, 16vw, 20rem);
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
