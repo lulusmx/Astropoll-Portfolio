@@ -1,0 +1,75 @@
+/* Page blanche commune — Overview, Photography, Clothes, Project, Contact */
+.page {
+  width: 100vw;
+  min-height: 100vh;
+  background: #fff;
+  color: #1a1a1a;
+  font-family: 'Myriad Pro', 'Segoe UI', Arial, sans-serif;
+  padding: 2.5vw 4vw;
+  cursor: url('/images/curseur40.png') 0 0, auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.page__back {
+  font-family: inherit;
+  font-size: clamp(0.85rem, 1.1vw, 1.2rem);
+  background: none;
+  border: none;
+  padding: 0.5em 0;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+  color: #1a1a1a;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.page__back:hover {
+  opacity: 0.5;
+}
+
+/* Titre en haut à gauche (style Overview) — retour vers l'accueil */
+.page__back--title {
+  font-size: clamp(2rem, 5vw, 5.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  padding: 0;
+  margin: 0 0 2vw;
+  opacity: 1;
+  align-self: flex-start;
+  transition: color 0.35s ease, transform 0.35s ease, letter-spacing 0.35s ease;
+}
+
+.page__back--title:hover {
+  color: #CDFF00;
+  opacity: 1;
+  transform: scale(1.03);
+  letter-spacing: 0.02em;
+}
+
+.page__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: calc(100vh - 8vw);
+  padding-top: 2vw;
+}
+
+.page__title {
+  font-family: 'Newake', 'Impact', 'Arial Black', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 7rem);
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0 0 1rem;
+  line-height: 1;
+}
+
+.page__intro {
+  font-size: clamp(1rem, 1.4vw, 1.4rem);
+  margin: 0;
+  max-width: 40ch;
+  line-height: 1.5;
+  opacity: 0.85;
+}

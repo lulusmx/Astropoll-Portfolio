@@ -54,7 +54,8 @@
 
 .homepage__date {
   font-family: 'Myriad Pro', 'Segoe UI', Arial, sans-serif;
-  font-size: clamp(0.7rem, 1vw, 1.1rem);
+  font-size: clamp(0.75rem, 1.1vw, 1.2rem);
+  font-weight: bold;
   letter-spacing: 0.1em;
   opacity: 0.85;
   margin-bottom: 0.4em;
@@ -71,11 +72,14 @@
 .homepage__subtitle {
   font-family: 'Myriad Pro', 'Segoe UI', Arial, sans-serif;
   font-size: clamp(0.75rem, 1.1vw, 1.2rem);
+  font-weight: bold;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   opacity: 0.9;
   transition: opacity 0.3s ease, transform 0.3s ease;
   cursor: url('/images/curseur40.png') 0 0, pointer;
+  margin-top: -0.65em;
+  margin-right: 0.15em;
 }
 
 .homepage__subtitle:hover {
@@ -85,7 +89,7 @@
 
 .homepage__name-row {
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   gap: 0.6vw;
 }
 
@@ -165,6 +169,16 @@
   letter-spacing: 0.01em;
   transition: opacity 0.3s ease;
   cursor: url('/images/curseur40.png') 0 0, pointer;
+}
+
+.homepage__nav a::first-letter {
+  font-size: 1.4em;
+  line-height: 1;
+}
+
+.homepage__nav a .homepage__nav-cap {
+  font-size: 1.4em;
+  line-height: 1;
 }
 
 .homepage__nav a:hover {

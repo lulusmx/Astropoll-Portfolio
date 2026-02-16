@@ -10,42 +10,42 @@
   cursor: url('/images/curseur40.png') 0 0, auto;
 }
 
-.ov__brand {
+.ov__back {
   font-family: 'Myriad Pro', 'Segoe UI', Arial, sans-serif;
-  font-size: clamp(0.8rem, 1vw, 1.2rem);
-  font-weight: 400;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
-  margin: 0;
-}
-
-.ov__brand:hover {
-  opacity: 0.4;
-}
-
-.ov__line {
+  font-size: clamp(2rem, 5vw, 5.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  background: none;
   border: none;
-  border-top: 1px solid #1a1a1a;
-  margin: 1vw 0;
+  padding: 0;
+  margin: 0 0 2vw;
+  color: #1a1a1a;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+  align-self: flex-start;
+  transition: color 0.35s ease, transform 0.35s ease, letter-spacing 0.35s ease;
 }
 
-.ov__proposal {
-  font-size: clamp(0.8rem, 1vw, 1.2rem);
-  margin-bottom: 2vw;
+.ov__back:hover {
+  color: #CDFF00;
+  transform: scale(1.03);
+  letter-spacing: 0.02em;
 }
 
-/* Carousel */
+/* Colonne défilante */
 .ov__carousel {
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   flex: 1;
   display: flex;
-  align-items: center;
+  justify-content: center;
 }
 
 .ov__track {
   display: flex;
-  gap: 3vw;
-  padding-bottom: 1vw;
+  flex-direction: column;
+  gap: 4vw;
+  padding: 2vw 0 4vw;
 }
 
 .ov__slide {
@@ -76,9 +76,9 @@
   margin-top: 0.5vw;
 }
 
-/* Scrollbar */
+/* Scrollbar verticale */
 .ov__carousel::-webkit-scrollbar {
-  height: 4px;
+  width: 4px;
 }
 
 .ov__carousel::-webkit-scrollbar-track {

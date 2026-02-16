@@ -10,11 +10,9 @@ const logos = [
 function Overview({ onBack }) {
   return (
     <div className="ov">
-      <h1 className="ov__brand" onClick={onBack}>hirondelles</h1>
-
-      <hr className="ov__line" />
-
-      <p className="ov__proposal">Proposal B</p>
+      <button type="button" className="ov__back" onClick={onBack}>
+        OVERVIEW
+      </button>
 
       <div className="ov__carousel">
         <div className="ov__track">

@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import Overview from './Overview.jsx'
+import Photography from './Photography.jsx'
+import Clothes from './Clothes.jsx'
+import Project from './Project.jsx'
+import Contact from './Contact.jsx'
 
 const navLinks = [
   { label: 'Overview', page: 'overview' },
@@ -31,9 +35,13 @@ function App() {
     second: '2-digit',
   })
 
-  if (page === 'overview') {
-    return <Overview onBack={() => setPage('home')} />
-  }
+  const goHome = () => setPage('home')
+
+  if (page === 'overview') return <Overview onBack={goHome} />
+  if (page === 'photography') return <Photography onBack={goHome} />
+  if (page === 'clothes') return <Clothes onBack={goHome} />
+  if (page === 'project') return <Project onBack={goHome} />
+  if (page === 'contact') return <Contact onBack={goHome} />
 
   return (
     <main className="homepage">
@@ -68,7 +76,11 @@ function App() {
                     setPage(p)
                   }}
                 >
-                  {label}
+                  {label === 'CV + Contact' ? (
+                    <>CV + <span className="homepage__nav-cap">C</span>ontact</>
+                  ) : (
+                    label
+                  )}
                 </a>
               ))}
             </nav>
