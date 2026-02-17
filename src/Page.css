@@ -1,6 +1,7 @@
 /* Page blanche commune — Overview, Photography, Clothes, Project, Contact */
 .page {
   width: 100vw;
+  height: 100vh;
   min-height: 100vh;
   background: #fff;
   color: #1a1a1a;
@@ -9,6 +10,28 @@
   cursor: url('/images/curseur40.png') 0 0, auto;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+}
+
+/* Pages galerie : défilement vertical libre */
+.page--scrollable {
+  height: 100vh;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.page--scrollable .page__content {
+  min-height: 0;
+}
+.page--scrollable .page__content--gallery {
+  flex: none;
+  overflow: visible;
+}
+.page--scrollable .page__content--phone-gallery {
+  flex: none;
+  overflow: visible;
 }
 
 .page__back {
@@ -27,7 +50,6 @@
   opacity: 0.5;
 }
 
-/* Titre en haut à gauche (style Overview) — retour vers l'accueil */
 .page__back--title {
   font-size: clamp(2rem, 5vw, 5.5rem);
   font-weight: 700;
@@ -56,20 +78,357 @@
   padding-top: 2vw;
 }
 
-.page__title {
-  font-family: 'Newake', 'Impact', 'Arial Black', sans-serif;
-  font-size: clamp(2.5rem, 6vw, 7rem);
-  font-weight: normal;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  margin: 0 0 1rem;
-  line-height: 1;
+.page__content--center {
+  align-items: center;
+  justify-content: center;
+  margin-top: -4vw;
+}
+
+.page__back--logo {
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+}
+
+.page__back--logo img {
+  display: block;
+  max-width: clamp(280px, 48vw, 620px);
+  height: auto;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Page Clothes : logo tout en haut à gauche, collé aux bords */
+.page--clothes {
+  padding: 0;
+  position: relative;
+}
+
+.page--clothes .page__back--logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+}
+
+.page--clothes .page__back--logo img {
+  max-width: clamp(320px, 55vw, 720px);
+  display: block;
+}
+
+.page__back--logo:hover img {
+  opacity: 0.8;
+  transform: scale(1.02);
+}
+
+/* Page Clothes : colonne de photos à droite, max moitié écran */
+.page__content--clothes {
+  margin-top: 10vw;
+  padding: 2vw 3vw 4vw 0;
+  align-items: flex-end;
+  max-width: 100%;
+  flex: 0 0 auto;
+}
+
+.page__clothes-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+  width: 100%;
+  max-width: 50vw;
+  margin-left: auto;
+}
+
+.page__clothes-item {
+  width: 100%;
+}
+
+.page__clothes-item:nth-child(5) {
+  margin-top: 4vw;
+}
+
+.page__clothes-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.page__clothes-item--white-bg {
+  background: #fff;
+}
+
+.page__clothes-item--white-bg img {
+  filter: brightness(1.12);
+}
+
+.page--phone {
+  position: relative;
+}
+
+.page__phone-decor-wrap {
+  position: absolute;
+  top: 2vw;
+  right: 4vw;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+  z-index: 1;
+  line-height: 0;
+}
+
+.page__phone-decor {
+  display: block;
+  width: clamp(160px, 24vw, 320px);
+  height: auto;
+  transition: filter 0.3s ease;
+}
+
+.page__phone-decor-wrap:hover .page__phone-decor {
+  animation: page__poiscaille-spin 0.9s linear infinite;
+}
+
+.page__phone-decor--green {
+  filter: brightness(1.15) saturate(2.5) hue-rotate(75deg);
+}
+
+@keyframes page__poiscaille-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.page__content--phone-gallery {
+  align-items: center;
+  padding-top: 24vw;
+}
+
+.page__content--gallery {
+  align-items: center;
+  padding-top: 0;
+  justify-content: flex-start;
 }
 
 .page__intro {
-  font-size: clamp(1rem, 1.4vw, 1.4rem);
   margin: 0;
-  max-width: 40ch;
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
   line-height: 1.5;
-  opacity: 0.85;
+}
+
+/* Grille galerie iPhone — 5 photos par ligne */
+.page__phone-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1vw;
+  width: 100%;
+  max-width: 90vw;
+  padding: 0 2vw 4vw;
+}
+
+.page__phone-grid-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  position: relative;
+}
+
+.page__phone-grid-item:hover {
+  overflow: visible;
+  z-index: 2;
+}
+
+.page__phone-grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.page__phone-grid-item:hover img {
+  transform: scale(1.2);
+}
+
+/* Galerie appareil photo */
+.page__gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5vw;
+  padding: 2vw 0 4vw;
+}
+
+.page__gallery-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5vw;
+  width: 100%;
+  max-width: 85vw;
+}
+
+.page__gallery-section--spaced {
+  margin-top: 5vw;
+}
+
+.page__gallery-title {
+  font-weight: 700;
+  font-size: clamp(0.9rem, 1.2vw, 1.3rem);
+  margin: 0 0 0.4vw;
+  align-self: flex-start;
+  width: 100%;
+  text-align: left;
+}
+
+.page__gallery-row {
+  display: flex;
+  gap: 1vw;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.page__gallery-item {
+  flex-shrink: 0;
+  max-width: 85vw;
+  position: relative;
+}
+
+.page__gallery-item--half {
+  max-width: calc(42.5vw - 0.5vw);
+}
+
+.page__gallery-item--clickable {
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+}
+
+.page__gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: middle;
+}
+
+/* Lightbox */
+.page__lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: url('/images/curseur40.png') 0 0, auto;
+}
+
+.page__lightbox-close {
+  position: absolute;
+  top: 2vw;
+  right: 2vw;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: none;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a1a1a' stroke-width='2'%3E%3Cpath d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E") center/contain no-repeat;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+  opacity: 0.7;
+  z-index: 1002;
+}
+
+.page__lightbox-close:hover {
+  opacity: 1;
+}
+
+.page__lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4rem;
+  height: 4rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+  z-index: 1002;
+}
+
+.page__lightbox-arrow--left {
+  left: 2vw;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a1a1a' stroke-width='2'%3E%3Cpath d='M15 18l-6-6 6-6'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+.page__lightbox-arrow--right {
+  right: 2vw;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a1a1a' stroke-width='2'%3E%3Cpath d='M9 18l6-6-6-6'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+.page__lightbox-img-wrap {
+  max-width: 90vw;
+  max-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page__lightbox-img {
+  max-width: 100%;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Index Photography — iPhone et appareil photo : une moitié grossit au survol, pas les deux */
+.page__photo-wrap {
+  display: flex;
+  max-width: 85vw;
+  width: 100%;
+}
+
+.page__photo-zone {
+  flex: 0 0 50%;
+  position: relative;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+  overflow: hidden;
+  display: block;
+}
+
+.page__photo-half {
+  display: block;
+  width: 200%;
+  height: auto;
+  max-width: none;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.page__photo-half--left {
+  object-position: left center;
+}
+
+.page__photo-half--right {
+  object-position: right center;
+}
+
+/* Icône droite : image complète (appareil photo) dans la zone */
+.page__photo-half--icon {
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Petit grossissement uniquement sur l’iPhone au survol de la zone gauche */
+.page__photo-zone--left:hover .page__photo-half--left {
+  transform: scale(1.05);
+}
+
+/* Petit grossissement uniquement sur l’appareil photo au survol de la zone droite */
+.page__photo-zone--right:hover .page__photo-half--right {
+  transform: scale(1.05);
 }

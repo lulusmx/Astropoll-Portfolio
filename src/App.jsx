@@ -9,7 +9,7 @@ import Contact from './Contact.jsx'
 const navLinks = [
   { label: 'Overview', page: 'overview' },
   { label: 'Photography', page: 'photography' },
-  { label: 'Clothes', page: 'clothes' },
+  { label: 'Collectible', page: 'clothes' },
   { label: 'Project', page: 'project' },
   { label: 'CV + Contact', page: 'contact' },
 ]
@@ -76,11 +76,7 @@ function App() {
                     setPage(p)
                   }}
                 >
-                  {label === 'CV + Contact' ? (
-                    <>CV + <span className="homepage__nav-cap">C</span>ontact</>
-                  ) : (
-                    label
-                  )}
+                  {label}
                 </a>
               ))}
             </nav>
