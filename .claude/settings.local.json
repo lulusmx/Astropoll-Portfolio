@@ -8,7 +8,17 @@
       "Bash(identify:*)",
       "Bash(python3:*)",
       "Bash(npx --yes sharp-cli:*)",
-      "Bash(npx sharp-cli:*)"
+      "Bash(npx sharp-cli:*)",
+      "Bash(ls -la /Users/lucas/Documents/Astropoll-Portfolio/*.*)",
+      "Bash(ls /Users/lucas/Documents/Astropoll-Portfolio/public/images/*.png)",
+      "Bash(export PATH=\"/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/bin:/bin:$PATH\")",
+      "Bash(export PATH=\"/Users/lucas/.nvm/versions/node/v24.14.0/bin:$PATH\")",
+      "Bash(node --version)",
+      "Bash(npm --version)",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(node convert-to-webp.mjs)",
+      "Bash(node update-refs.mjs)",
+      "Bash(ls /Users/lucas/Documents/Astropoll-Portfolio/public/images/cv*)"
     ]
   }
 }

@@ -54,7 +54,7 @@
   border: none;
   padding: 0;
   text-align: left;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
   font: inherit;
 }
 
@@ -70,7 +70,7 @@
   margin-bottom: 0.5em;
   margin-left: 2.7vw;
   transition: opacity 0.3s ease, transform 0.3s ease;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
 }
 
 .homepage__date:hover {
@@ -86,7 +86,7 @@
   text-transform: uppercase;
   opacity: 0.9;
   transition: opacity 0.3s ease, transform 0.3s ease;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
   margin-top: -0.65em;
   margin-right: 0.15em;
 }
@@ -110,7 +110,7 @@
   font-weight: normal;
   margin-left: 2.5vw;
   letter-spacing: 0.02em;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
   position: relative;
   background-image:
     repeating-conic-gradient(#000 0% 25%, #fff 0% 50%);
@@ -153,7 +153,7 @@
   text-transform: uppercase;
   font-weight: normal;
   letter-spacing: 0.02em;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
@@ -178,7 +178,7 @@
   letter-spacing: 0.01em;
   line-height: 1;
   transition: opacity 0.3s ease;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
 }
 
 .homepage__nav a:hover {
@@ -208,7 +208,7 @@
   text-align: center;
   background: transparent;
   transition: background 0.3s ease, color 0.3s ease;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
 }
 
 .homepage__shop:hover {
@@ -233,4 +233,72 @@
   height: auto;
   margin: 0;
   padding: 0;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .homepage__overlay {
+    padding: 5vw 4vw;
+  }
+
+  .homepage__title {
+    font-size: clamp(3.5rem, 18vw, 7rem);
+    margin-left: 0;
+  }
+
+  .homepage__date {
+    font-size: clamp(0.65rem, 3vw, 0.9rem);
+    margin-left: 0;
+  }
+
+  .homepage__subtitle {
+    font-size: clamp(0.65rem, 3vw, 0.9rem);
+  }
+
+  .homepage__top {
+    gap: 1rem;
+  }
+
+  .homepage__right {
+    gap: 3vw;
+  }
+
+  .homepage__name {
+    font-size: clamp(1.2rem, 5vw, 2rem);
+  }
+
+  .homepage__name-row {
+    gap: 2vw;
+  }
+
+  .homepage__nav {
+    gap: 1vw;
+    margin-top: 2vw;
+  }
+
+  .homepage__nav a {
+    font-size: clamp(1rem, 4.5vw, 1.8rem);
+  }
+
+  .homepage__shop {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+    border-width: 3px;
+  }
+
+  .homepage__logo {
+    bottom: -4vw;
+    right: -4vw;
+  }
+
+  .homepage__logo img {
+    width: clamp(5rem, 18vw, 10rem);
+  }
+}
+
+@media (hover: none) {
+  *, *::before, *::after {
+    cursor: auto !important;
+  }
 }

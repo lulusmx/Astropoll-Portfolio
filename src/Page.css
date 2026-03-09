@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Apple Chancery';
+  src: url('/images/Apple Chancery.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Page blanche commune — Overview, Photography, Clothes, Project, Contact */
 .page {
   width: 100vw;
@@ -7,7 +14,7 @@
   color: #1a1a1a;
   font-family: 'Myriad Pro', 'Segoe UI', Arial, sans-serif;
   padding: 2.5vw 4vw;
-  cursor: url('/images/curseur40.png') 0 0, auto;
+  cursor: url('/images/curseur40.webp') 0 0, auto;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -41,7 +48,7 @@
   background: none;
   border: none;
   padding: 0.5em 0;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
   color: #1a1a1a;
   opacity: 0.8;
   transition: opacity 0.2s ease;
@@ -64,7 +71,7 @@
   background: none;
   border: none;
   color: #1a1a1a;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
   transition: color 0.25s ease, transform 0.25s ease;
 }
 
@@ -104,7 +111,7 @@
   height: auto;
   display: block;
   transition: transform 0.35s ease;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
 }
 
 .page__artefact-img:hover {
@@ -233,7 +240,7 @@
 }
 
 .page__hirondelles-text {
-  font-family: 'Myriad Pro', 'Segoe UI', Arial, sans-serif;
+  font-family: 'Apple Chancery', serif;
   font-size: clamp(0.65rem, 0.9vw, 0.9rem);
   line-height: 1.6;
   color: #1a1a1a;
@@ -243,6 +250,7 @@
   padding: 0 8vw;
   font-style: italic;
   white-space: pre-line;
+  text-wrap: pretty;
 }
 
 .page__future-project-img {
@@ -256,7 +264,7 @@
 
 .page__future-project-img:hover {
   animation: page__colis-tremble 0.08s linear infinite;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
 }
 
 @keyframes page__colis-tremble {
@@ -295,7 +303,7 @@
   padding: 0;
   border: none;
   background: none;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
 }
 
 .page__project-icon-wrap .page__project-icon:hover {
@@ -438,7 +446,7 @@
   flex-shrink: 0;
   filter: blur(5px);
   opacity: 0.45;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
   transition: opacity 0.2s ease;
   overflow: hidden;
 }
@@ -480,7 +488,7 @@
   font-size: clamp(2rem, 3.5vw, 3rem);
   color: #1a1a1a;
   padding: 0.3em 0.6em;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
   transition: color 0.2s ease, transform 0.2s ease;
   line-height: 1;
   z-index: 3;
@@ -510,7 +518,7 @@
   background: none;
   border: none;
   padding: 0;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
   transform-origin: center center;
   transition: filter 0.15s;
 }
@@ -560,7 +568,7 @@
   padding: 0;
   border: none;
   background: none;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
 }
 
 .page__inner-embleme img {
@@ -606,13 +614,14 @@
   border: none;
   padding: 0.2em 0;
   color: #1a1a1a;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
-  transition: color 0.25s ease, opacity 0.25s ease;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
+  transform-origin: left center;
+  transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .page__inner-nav-link:hover {
   color: #CDFF00;
-  opacity: 0.9;
+  transform: scale(1.06);
 }
 
 .page__inner-right {
@@ -641,7 +650,7 @@
   border: none;
   padding: 0;
   color: #660099;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
@@ -661,7 +670,7 @@
   padding: 0;
   border: none;
   background: none;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
   z-index: 1;
   line-height: 0;
 }
@@ -720,7 +729,7 @@
   height: auto;
   display: block;
   margin: 0 auto;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
   transition: transform 0.4s ease-out;
   transform-origin: center center;
 }
@@ -754,7 +763,7 @@
   padding: 4vw;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(4px);
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
   perspective: 1000px;
 }
 
@@ -852,21 +861,23 @@
   display: flex;
   gap: 1vw;
   justify-content: center;
-  flex-wrap: wrap;
+  width: 100%;
 }
 
 .page__gallery-item {
-  flex-shrink: 0;
+  width: 100%;
   max-width: 85vw;
   position: relative;
 }
 
 .page__gallery-item--half {
-  max-width: calc(42.5vw - 0.5vw);
+  flex: 1;
+  min-width: 0;
+  max-width: none;
 }
 
 .page__gallery-item--clickable {
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
 }
 
 .page__gallery-item img {
@@ -885,7 +896,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: url('/images/curseur40.png') 0 0, auto;
+  cursor: url('/images/curseur40.webp') 0 0, auto;
 }
 
 .page__lightbox-close {
@@ -897,7 +908,7 @@
   padding: 0;
   border: none;
   background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a1a1a' stroke-width='2'%3E%3Cpath d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E") center/contain no-repeat;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
   opacity: 0.7;
   z-index: 1002;
 }
@@ -915,7 +926,7 @@
   padding: 0;
   border: none;
   background: transparent;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
   z-index: 1002;
 }
 
@@ -959,7 +970,7 @@
   padding: 0;
   border: none;
   background: transparent;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
   overflow: hidden;
   display: block;
 }
@@ -996,4 +1007,171 @@
 /* Petit grossissement uniquement sur l’appareil photo au survol de la zone droite */
 .page__photo-zone--right:hover .page__photo-half--right {
   transform: scale(1.05);
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  /* Page de base */
+  .page {
+    padding: 5vw 5vw;
+  }
+
+  .page__back--title {
+    font-size: clamp(1.8rem, 7vw, 3.5rem);
+    margin: 0 0 4vw;
+  }
+
+  /* Inner page : layout en colonne */
+  .page__content--inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6vw;
+    padding: 4vw 5vw;
+  }
+
+  .page__inner-boulons {
+    display: none;
+  }
+
+  .page__inner-ancre {
+    display: none;
+  }
+
+  .page__inner-embleme {
+    position: static;
+    margin-top: 4vw;
+  }
+
+  .page__inner-right {
+    align-items: flex-start;
+  }
+
+  .page__inner-time {
+    font-size: clamp(0.7rem, 3.5vw, 1rem);
+  }
+
+  .page__inner-title {
+    font-size: clamp(2.5rem, 10vw, 5rem);
+  }
+
+  .page__inner-nav-link {
+    font-size: clamp(1.5rem, 6vw, 2.8rem);
+  }
+
+  /* Photography menu : zones empilées verticalement */
+  .page__photo-wrap {
+    flex-direction: column;
+    max-width: 80vw;
+  }
+
+  .page__photo-zone {
+    flex: none;
+    width: 100%;
+  }
+
+  .page__photo-half {
+    width: 100%;
+  }
+
+  .page__photo-half--left {
+    object-position: center center;
+  }
+
+  /* Grille iPhone : 3 colonnes */
+  .page__phone-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2vw;
+    max-width: 96vw;
+  }
+
+  .page__content--phone-gallery {
+    padding-top: 6vw;
+  }
+
+  .page__phone-decor-wrap {
+    top: 1vw;
+    right: 2vw;
+  }
+
+  .page__phone-decor {
+    width: clamp(80px, 15vw, 140px);
+  }
+
+  /* Galerie caméra */
+  .page__gallery-section {
+    max-width: 96vw;
+  }
+
+  /* Clothes slider */
+  .page__clothes-slider {
+    padding: 10vw 0 3rem;
+  }
+
+  .page__clothes-slider-item--active {
+    width: clamp(160px, 60vw, 340px);
+    height: clamp(200px, 65vh, 500px);
+  }
+
+  .page__clothes-slider-item--side {
+    display: none;
+  }
+
+  .page--clothes .page__back--logo {
+    left: -5vw;
+  }
+
+  .page--clothes .page__back--logo img {
+    max-width: clamp(240px, 70vw, 500px);
+  }
+
+  /* Hirondelles */
+  .page--hirondelles {
+    padding: 8vw 6vw 16vw;
+  }
+
+  .page--hirondelles .page__content {
+    padding-top: 55vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-bottom: 20vw;
+  }
+
+  .page__hirondelles-text {
+    font-size: clamp(0.8rem, 3.5vw, 1rem);
+    padding: 0 2vw;
+  }
+
+  /* Artefacts & Future project */
+  .page__artefact-img {
+    width: clamp(220px, 72vw, 480px);
+  }
+
+  .page__future-project-img {
+    width: clamp(180px, 65vw, 400px);
+  }
+
+  .page__future-project-subtitle {
+    font-size: clamp(1rem, 5vw, 2rem);
+  }
+
+  /* CV / Contact */
+  .page__cv-img {
+    width: clamp(200px, 80vw, 420px);
+  }
+
+  /* Project icons */
+  .page__project-icons {
+    gap: clamp(1rem, 5vw, 3rem);
+  }
+
+  .page__project-icon {
+    width: clamp(110px, 35vw, 220px);
+  }
+
+  /* Back logo */
+  .page__back--logo img {
+    max-width: clamp(220px, 65vw, 500px);
+  }
 }

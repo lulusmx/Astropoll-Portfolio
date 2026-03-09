@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import './Page.css'
 
-// Positions calées sur la disposition de l'image d'origine (boulons-vis.png)
+// Positions calées sur la disposition de l'image d'origine (boulons-vis.webp)
 const BOLTS = [
-  { img: '/images/boulon-0-ecrou.png',     size: '5vw',  top: '5vw',   left: '-2.5vw', dur: '0.9s'  },
-  { img: '/images/boulon-1-vis-croix.png', size: '6.5vw',top: '4vw',   left: '7vw',    dur: '2.2s'  },
-  { img: '/images/boulon-2-vis-plate.png', size: '7vw',  top: '11vw',  left: '8vw',    dur: '1.6s'  },
-  { img: '/images/boulon-3-hex.png',       size: '6.5vw',top: '14vw',  left: '-7vw',   dur: '3s'    },
-  { img: '/images/boulon-4-scie.png',      size: '9.5vw',top: '12.5vw',left: '17vw',   dur: '1.2s'  },
-  { img: '/images/boulon-5-petite-vis.png',size: '4vw',  top: '22vw',  left: '-5.5vw', dur: '0.7s'  },
+  { img: '/images/boulon-0-ecrou.webp',     size: '5vw',  top: '5vw',   left: '-2.5vw', dur: '0.9s'  },
+  { img: '/images/boulon-1-vis-croix.webp', size: '6.5vw',top: '4vw',   left: '7vw',    dur: '2.2s'  },
+  { img: '/images/boulon-2-vis-plate.webp', size: '7vw',  top: '11vw',  left: '8vw',    dur: '1.6s'  },
+  { img: '/images/boulon-3-hex.webp',       size: '6.5vw',top: '14vw',  left: '-7vw',   dur: '3s'    },
+  { img: '/images/boulon-4-scie.webp',      size: '9.5vw',top: '12.5vw',left: '17vw',   dur: '1.2s'  },
+  { img: '/images/boulon-5-petite-vis.webp',size: '4vw',  top: '22vw',  left: '-5.5vw', dur: '0.7s'  },
 ]
 
 function Inner({ onBack, navLinks = [], onNavigate, formattedTime }) {
@@ -40,9 +40,9 @@ function Inner({ onBack, navLinks = [], onNavigate, formattedTime }) {
         onClick={() => setIsSpinning((s) => !s)}
         aria-label={isSpinning ? 'Arrêter la rotation' : 'Faire tourner le médaillon'}
       >
-        <img src="/images/embleme-inner.png" alt="" draggable={false} />
+        <img src="/images/embleme-inner.webp" alt="" draggable={false} />
       </button>
-      <img src="/images/ancre.png" alt="" className="page__inner-ancre" draggable={false} />
+      <img src="/images/ancre.webp" alt="" className="page__inner-ancre" draggable={false} />
       <div className="page__content page__content--inner">
         {/* Gauche : catégories */}
         <nav className="page__inner-nav">

@@ -8,7 +8,7 @@ function FutureProject({ onBack, onNavigate }) {
       </button>
       <div className="page__content page__content--center">
         <img
-          src="/images/future-project-colis.png"
+          src="/images/future-project-colis.webp"
           alt=""
           className="page__future-project-img"
           draggable={false}

@@ -70,7 +70,7 @@ function App() {
     <main className="homepage">
       {/* Background photo */}
       <div className="homepage__bg">
-        <img src="/images/font.jpeg" alt="" loading="eager" draggable={false} />
+        <img src="/images/font.webp" alt="" loading="eager" draggable={false} />
       </div>
 
       {/* Overlay content */}
@@ -121,7 +121,7 @@ function App() {
 
       {/* Reticule logo */}
       <div className="homepage__logo">
-        <img src="/images/Reticule@3x.png" alt="Reticule" draggable={false} />
+        <img src="/images/Reticule@3x.webp" alt="Reticule" draggable={false} />
       </div>
     </main>
   )

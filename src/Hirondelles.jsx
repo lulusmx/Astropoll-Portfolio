@@ -41,7 +41,7 @@ function Hirondelles({ onBack, onNavigate }) {
   return (
     <div className="page page--scrollable page--hirondelles">
       <button type="button" className="page__back page__back--logo page__back--logo-hirondelles" onClick={handleLogoClick} aria-label="Faire apparaître les hirondelles">
-        <img src="/images/logo-hirondelles-text.png" alt="Hirondelles" draggable={false} />
+        <img src="/images/logo-hirondelles-text.webp" alt="Hirondelles" draggable={false} />
       </button>
       {showBirds && (
         <div className="page__hirondelles-birds" aria-hidden="true">
@@ -57,7 +57,7 @@ function Hirondelles({ onBack, onNavigate }) {
                 '--bird-size': bird.size,
               }}
             >
-              <img src="/images/hirondelle-silhouette.png" alt="" draggable={false} className="page__hirondelles-bird-img" />
+              <img src="/images/hirondelle-silhouette.webp" alt="" draggable={false} className="page__hirondelles-bird-img" />
             </div>
           ))}
         </div>
@@ -67,7 +67,7 @@ function Hirondelles({ onBack, onNavigate }) {
           {hirondellesText}
         </blockquote>
         <img
-          src="/images/logo-hirondelles-emblem.png"
+          src="/images/logo-hirondelles-emblem.webp"
           alt=""
           className="page__hirondelles-logo"
           draggable={false}

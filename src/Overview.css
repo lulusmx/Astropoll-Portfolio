@@ -8,7 +8,7 @@
   padding: 2vw 3vw;
   display: flex;
   flex-direction: column;
-  cursor: url('/images/curseur40.png') 0 0, auto;
+  cursor: url('/images/curseur40.webp') 0 0, auto;
   overflow: hidden;
 }
 
@@ -23,7 +23,7 @@
   padding: 0;
   margin: 0 0 2vw;
   color: #1a1a1a;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
   align-self: flex-start;
   transition: color 0.35s ease, transform 0.35s ease, letter-spacing 0.35s ease;
 }
@@ -62,7 +62,7 @@
   width: clamp(200px, 42vw, 500px);
   background: transparent;
   transition: transform 0.35s ease;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
 }
 
 .ov__slide:hover {
@@ -142,11 +142,33 @@
   border: none;
   padding: 0.5em 0;
   color: #1a1a1a;
-  cursor: url('/images/curseur40.png') 0 0, pointer;
+  cursor: url('/images/curseur40.webp') 0 0, pointer;
   transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .ov__next:hover {
   color: #CDFF00;
   transform: translateX(4px);
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .ov {
+    padding: 4vw 5vw;
+  }
+
+  .ov__track {
+    gap: 8vw;
+    padding: 2vw 0 6vw;
+  }
+
+  .ov__slide {
+    width: clamp(180px, 72vw, 400px);
+  }
+
+  .ov__slide-img {
+    height: clamp(150px, 55vw, 350px);
+  }
 }

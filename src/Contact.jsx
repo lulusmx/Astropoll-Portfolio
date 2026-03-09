@@ -18,7 +18,7 @@ function Contact({ onBack, onNavigate }) {
       </button>
       <div className="page__content page__content--contact">
         <img
-          src="/images/cv-paul-thomas.png?v=2"
+          src="/images/cv-paul-thomas.webp"
           alt="CV Paul Thomas"
           className="page__cv-img"
           draggable={false}
@@ -42,7 +42,7 @@ function Contact({ onBack, onNavigate }) {
           aria-label="Fermer"
         >
           <img
-            src="/images/cv-paul-thomas.png?v=2"
+            src="/images/cv-paul-thomas.webp"
             alt="CV Paul Thomas - vue agrandie"
             className="page__cv-img-expanded"
             onClick={(e) => e.stopPropagation()}

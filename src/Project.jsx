@@ -24,14 +24,14 @@ function Project({ onBack, onNavigate }) {
             className="page__project-icon-wrap"
             onClick={handleCreationClick}
           >
-            <img src="/images/icon-creation.png" alt="" className="page__project-icon" draggable={false} />
+            <img src="/images/icon-creation.webp" alt="" className="page__project-icon" draggable={false} />
           </button>
           <button
             type="button"
             className="page__project-icon-wrap"
             onClick={() => onNavigate?.('future-project')}
           >
-            <img src="/images/icon-recyclage.png" alt="" className="page__project-icon" draggable={false} />
+            <img src="/images/icon-recyclage.webp" alt="" className="page__project-icon" draggable={false} />
           </button>
         </div>
       </div>
@@ -39,7 +39,7 @@ function Project({ onBack, onNavigate }) {
       {transitionToCollectible && (
         <div className="page__transition-overlay">
           <img
-            src="/images/icon-creation.png"
+            src="/images/icon-creation.webp"
             alt=""
             className="page__transition-icon"
             draggable={false}

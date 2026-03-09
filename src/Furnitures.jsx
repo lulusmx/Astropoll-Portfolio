@@ -8,7 +8,7 @@ function Artefacts({ onBack, onNavigate }) {
       </button>
       <div className="page__content page__content--center">
         <img
-          src="/images/artefact-tableau.png"
+          src="/images/artefact-tableau.webp"
           alt="Lou & Paul — Less morose more present"
           className="page__artefact-img"
           draggable={false}

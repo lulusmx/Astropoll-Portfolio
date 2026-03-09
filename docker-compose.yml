@@ -1,0 +1,13 @@
+services:
+  inner-hirondelles:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: inner-hirondelles
+    restart: unless-stopped
+    networks:
+      - hirondellesonline_hirondelles-network
+
+networks:
+  hirondellesonline_hirondelles-network:
+    external: true

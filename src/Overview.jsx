@@ -2,22 +2,22 @@ import { useState, useEffect, useRef } from 'react'
 import './Overview.css'
 
 const overviewItems = [
-  { src: '/images/overview-1-hirondelles-airport.png', label: 'Hirondelles Airport' },
-  { src: '/images/overview-we-our-children.png', label: 'Ride Carefully' },
-  { src: '/images/overview-fleches-direction.png', label: 'Direction' },
-  { src: '/images/overview-direction-fire.png', label: 'Arrondeille Fire Dept' },
-  { src: '/images/overview-hirondelles-fire.png', label: 'Hirondelles Fire Dept' },
-  { src: '/images/overview-main-st-hirondelles.png', label: 'H Main St' },
-  { src: '/images/overview-h-square.png', label: 'H Square' },
-  { src: '/images/overview-roue-moto.png', label: 'Roue moto' },
-  { src: '/images/overview-emblem-ailes.png', label: 'Emblem ailes' },
-  { src: '/images/overview-lirondelles.png', label: 'Lirondelles' },
-  { src: '/images/overview-a-stylise.png', label: 'A stylisé' },
-  { src: '/images/overview-avion.png', label: 'Avion' },
-  { src: '/images/overview-big-board.png', label: 'The Big Board' },
-  { src: '/images/overview-for-free-ppl.png', label: 'For Free PPL' },
-  { src: '/images/overview-avenue-hirondelles.png', label: 'Avenue des Hirondelles' },
-  { src: '/images/overview-roue-rotiform.png', label: 'Roue Rotiform' },
+  { src: '/images/overview-1-hirondelles-airport.webp', label: 'Hirondelles Airport' },
+  { src: '/images/overview-we-our-children.webp', label: 'Ride Carefully' },
+  { src: '/images/overview-fleches-direction.webp', label: 'Direction' },
+  { src: '/images/overview-direction-fire.webp', label: 'Arrondeille Fire Dept' },
+  { src: '/images/overview-hirondelles-fire.webp', label: 'Hirondelles Fire Dept' },
+  { src: '/images/overview-main-st-hirondelles.webp', label: 'H Main St' },
+  { src: '/images/overview-h-square.webp', label: 'H Square' },
+  { src: '/images/overview-roue-moto.webp', label: 'Roue moto' },
+  { src: '/images/overview-emblem-ailes.webp', label: 'Emblem ailes' },
+  { src: '/images/overview-lirondelles.webp', label: 'Lirondelles' },
+  { src: '/images/overview-a-stylise.webp', label: 'A stylisé' },
+  { src: '/images/overview-avion.webp', label: 'Avion' },
+  { src: '/images/overview-big-board.webp', label: 'The Big Board' },
+  { src: '/images/overview-for-free-ppl.webp', label: 'For Free PPL' },
+  { src: '/images/overview-avenue-hirondelles.webp', label: 'Avenue des Hirondelles' },
+  { src: '/images/overview-roue-rotiform.webp', label: 'Roue Rotiform' },
 ]
 
 // Dérive douce et désintégration légère par item
