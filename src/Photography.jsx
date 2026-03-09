@@ -12,7 +12,7 @@ function flattenCameraPhotos(sections) {
   return flat
 }
 
-function Photography({ onBack }) {
+function Photography({ onBack, onNavigate }) {
   const [view, setView] = useState('main')
   const [lightboxIndex, setLightboxIndex] = useState(null)
   const [poiscailleGreen, setPoiscailleGreen] = useState(false)
@@ -90,6 +90,9 @@ function Photography({ onBack }) {
             ))}
           </div>
         </div>
+        <button type="button" className="page__next" onClick={() => setView('camera')}>
+          Next →
+        </button>
       </div>
     )
   }
@@ -233,6 +236,9 @@ function Photography({ onBack }) {
             ))}
           </div>
         </div>
+        <button type="button" className="page__next" onClick={() => onNavigate?.('clothes')}>
+          Next →
+        </button>
         {lightboxIndex !== null && flatPhotos.length > 0 && (
           <div
             className="page__lightbox"

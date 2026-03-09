@@ -7,7 +7,7 @@ const logos = [
   { src: '/images/logo-b3.png', label: 'B3 — 1:1' },
 ]
 
-function Overview({ onBack }) {
+function Overview({ onBack, onNavigate }) {
   return (
     <div className="ov">
       <button type="button" className="ov__back" onClick={onBack}>
@@ -26,6 +26,14 @@ function Overview({ onBack }) {
           ))}
         </div>
       </div>
+
+      <button
+        type="button"
+        className="ov__next"
+        onClick={() => onNavigate?.('photography')}
+      >
+        Next →
+      </button>
     </div>
   )
 }

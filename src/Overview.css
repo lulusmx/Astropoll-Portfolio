@@ -89,3 +89,24 @@
   background: #bbb;
   border-radius: 2px;
 }
+
+.ov__next {
+  align-self: flex-end;
+  margin-top: 2vw;
+  font-family: 'Myriad Pro', 'Segoe UI', Arial, sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.4rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: none;
+  border: none;
+  padding: 0.5em 0;
+  color: #1a1a1a;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.ov__next:hover {
+  color: #CDFF00;
+  transform: translateX(4px);
+}

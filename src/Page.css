@@ -50,6 +50,62 @@
   opacity: 0.5;
 }
 
+.page__next {
+  align-self: flex-end;
+  margin-top: auto;
+  margin-bottom: 2vw;
+  padding: 0.5em 0;
+  font-family: 'Myriad Pro', 'Segoe UI', Arial, sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.4rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: none;
+  border: none;
+  color: #1a1a1a;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.page__next:hover {
+  color: #CDFF00;
+  transform: translateX(4px);
+}
+
+.page--future-project {
+  position: relative;
+}
+
+.page--artefacts {
+  position: relative;
+}
+
+.page__artefact-img {
+  width: clamp(260px, 38vw, 560px);
+  height: auto;
+  display: block;
+  transition: transform 0.35s ease;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+}
+
+.page__artefact-img:hover {
+  transform: scale(1.06);
+}
+
+.page--artefacts .page__next {
+  position: absolute;
+  bottom: 2.5vw;
+  right: 4vw;
+  margin-top: 0;
+}
+
+.page--future-project .page__next {
+  position: absolute;
+  bottom: 2.5vw;
+  right: 4vw;
+  margin-top: 0;
+}
+
 .page__back--title {
   font-size: clamp(2rem, 5vw, 5.5rem);
   font-weight: 700;
@@ -84,6 +140,209 @@
   margin-top: -4vw;
 }
 
+.page--hirondelles {
+  padding: 12vw 18vw 16vw;
+  position: relative;
+}
+
+.page--hirondelles .page__back--logo-hirondelles {
+  position: absolute;
+  top: -5vw;
+  left: 4vw;
+  margin: 0;
+}
+
+.page--hirondelles .page__back--logo-hirondelles img {
+  display: block;
+  max-width: clamp(180px, 28vw, 420px);
+  height: auto;
+}
+
+.page__hirondelles-birds {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.page__hirondelles-bird {
+  position: absolute;
+  bottom: -8%;
+  animation: page__hirondelles-bird-fly 1.6s cubic-bezier(0.4, 0, 0.6, 1) forwards;
+}
+
+.page__hirondelles-bird-img {
+  width: var(--bird-size, 32px);
+  height: auto;
+  transform: rotate(calc(-90deg + var(--rotate, 0deg)));
+}
+
+@keyframes page__hirondelles-bird-fly {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-115vh) translateX(var(--drift, 0));
+    opacity: 0;
+  }
+}
+
+.page--hirondelles .page__next {
+  position: fixed;
+  bottom: 2.5vw;
+  right: 4vw;
+  margin-top: 0;
+}
+
+.page--hirondelles .page__content {
+  min-height: 0;
+  align-items: center;
+  padding-top: 80vh;
+  padding-bottom: 28vw;
+  padding-left: 12vw;
+  padding-right: 12vw;
+}
+
+.page__hirondelles-logo {
+  display: block;
+  width: clamp(48px, 7vw, 80px);
+  height: auto;
+  margin-top: 6vw;
+}
+
+.page__hirondelles-text {
+  font-family: 'Myriad Pro', 'Segoe UI', Arial, sans-serif;
+  font-size: clamp(0.65rem, 0.9vw, 0.9rem);
+  line-height: 1.6;
+  color: #1a1a1a;
+  max-width: 65ch;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 8vw;
+  font-style: italic;
+  white-space: pre-line;
+}
+
+.page__future-project-img {
+  width: clamp(200px, 32vw, 480px);
+  height: auto;
+  display: block;
+  margin-bottom: 3vw;
+  transform-origin: center bottom;
+  transition: transform 0.1s;
+}
+
+.page__future-project-img:hover {
+  animation: page__colis-tremble 0.08s linear infinite;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+}
+
+@keyframes page__colis-tremble {
+  0%   { transform: rotate(-3deg); }
+  25%  { transform: rotate(3deg); }
+  50%  { transform: rotate(-3deg); }
+  75%  { transform: rotate(3deg); }
+  100% { transform: rotate(-3deg); }
+}
+
+.page__future-project-subtitle {
+  font-family: 'Newake', 'Impact', 'Arial Black', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 2.2rem);
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.page__project-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2rem, 4vw, 5rem);
+}
+
+.page__project-icon {
+  width: clamp(140px, 22vw, 280px);
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.page__project-icon-wrap {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+}
+
+.page__project-icon-wrap .page__project-icon:hover {
+  transform: scale(1.08);
+}
+
+.page__project-icon:hover {
+  transform: scale(1.08);
+}
+
+.page__transition-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: page__transition-overlay-in 0.15s ease-out;
+}
+
+.page__transition-icon {
+  width: clamp(200px, 35vw, 450px);
+  height: auto;
+  object-fit: contain;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  animation: page__transition-icon-colors 0.9s ease-in-out forwards;
+}
+
+@keyframes page__transition-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes page__transition-icon-colors {
+  0% {
+    filter: brightness(0) saturate(100%) invert(1) sepia(1) saturate(25) hue-rotate(70deg) brightness(1.2);
+  }
+  20% {
+    filter: brightness(0) saturate(100%) invert(1) sepia(1) saturate(25) hue-rotate(55deg) brightness(1.2);
+  }
+  40% {
+    filter: brightness(0) saturate(100%) invert(1) sepia(1) saturate(25) hue-rotate(35deg) brightness(1.2);
+  }
+  60% {
+    filter: brightness(0) saturate(100%) invert(1) sepia(1) saturate(25) hue-rotate(0deg) brightness(1.2);
+  }
+  80% {
+    filter: brightness(0) saturate(100%) invert(1) sepia(1) saturate(35) hue-rotate(210deg) brightness(1.35);
+  }
+  100% {
+    filter: brightness(0) saturate(100%) invert(1) sepia(1) saturate(35) hue-rotate(210deg) brightness(1.35);
+  }
+}
+
 .page__back--logo {
   padding: 0;
   margin: 0;
@@ -106,7 +365,7 @@
 .page--clothes .page__back--logo {
   position: absolute;
   top: 0;
-  left: 0;
+  left: -3vw;
   margin: 0;
 }
 
@@ -140,6 +399,7 @@
 
 .page__clothes-item {
   width: 100%;
+  overflow: hidden;
 }
 
 .page__clothes-item:nth-child(5) {
@@ -151,6 +411,11 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.page__clothes-item:hover img {
+  transform: scale(1.05);
 }
 
 .page__clothes-item--white-bg {
@@ -159,6 +424,149 @@
 
 .page__clothes-item--white-bg img {
   filter: brightness(1.12);
+}
+
+/* Page Inner : titre à droite (plus petit), catégories à gauche */
+.page--inner {
+  justify-content: center;
+  position: relative;
+}
+
+.page__inner-boulons {
+  position: absolute;
+  top: 0;
+  right: 8vw;
+  width: 28vw;
+  height: calc(28vw * 584 / 688);
+}
+
+.page__inner-boulon {
+  position: absolute;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+  transform-origin: center center;
+  transition: filter 0.15s;
+}
+
+.page__inner-boulon img {
+  pointer-events: none;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.page__inner-boulon:hover {
+  filter: brightness(1.1);
+}
+
+.page__inner-boulon--spinning {
+  animation: page__inner-boulon-spin var(--spin-dur, 1.4s) linear infinite;
+}
+
+@keyframes page__inner-boulon-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.page__inner-embleme {
+  position: absolute;
+  bottom: 8vw;
+  right: 8vw;
+  z-index: 1;
+  line-height: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+}
+
+.page__inner-embleme img {
+  display: block;
+  width: clamp(80px, 12vw, 180px);
+  height: auto;
+}
+
+.page__inner-embleme--spinning img {
+  animation: page__embleme-spin 1.5s linear infinite;
+}
+
+@keyframes page__embleme-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.page__content--inner {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 0;
+  padding: 2.5vw 4vw;
+}
+
+.page__inner-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(0.5rem, 1vw, 1.2rem);
+}
+
+.page__inner-nav-link {
+  font-family: 'Myriad Pro', 'Segoe UI', Arial, sans-serif;
+  font-size: clamp(1.1rem, 2vw, 2.4rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  background: none;
+  border: none;
+  padding: 0.2em 0;
+  color: #1a1a1a;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.page__inner-nav-link:hover {
+  color: #CDFF00;
+  opacity: 0.9;
+}
+
+.page__inner-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.page__inner-time {
+  font-family: 'Myriad Pro', 'Segoe UI', Arial, sans-serif;
+  font-size: clamp(0.75rem, 1.1vw, 1.2rem);
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  color: #1a1a1a;
+  opacity: 0.85;
+}
+
+.page__inner-title {
+  font-family: 'Newake', 'Impact', 'Arial Black', sans-serif;
+  font-size: clamp(2rem, 5vw, 6rem);
+  text-transform: uppercase;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  background: none;
+  border: none;
+  padding: 0;
+  color: #660099;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.page__inner-title:hover {
+  color: #CDFF00;
+  transform: scale(1.02);
 }
 
 .page--phone {
@@ -189,7 +597,7 @@
 }
 
 .page__phone-decor--green {
-  filter: brightness(1.15) saturate(2.5) hue-rotate(75deg);
+  filter: brightness(1.1) saturate(3) hue-rotate(-30deg);
 }
 
 @keyframes page__poiscaille-spin {

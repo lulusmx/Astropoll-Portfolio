@@ -50,15 +50,24 @@
   display: flex;
   flex-direction: column;
   margin-top: -0.5vw;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+  font: inherit;
 }
 
 .homepage__date {
+  position: relative;
+  z-index: 2;
   font-family: 'Myriad Pro', 'Segoe UI', Arial, sans-serif;
   font-size: clamp(0.75rem, 1.1vw, 1.2rem);
   font-weight: bold;
   letter-spacing: 0.1em;
-  opacity: 0.85;
-  margin-bottom: 0.4em;
+  color: #CDFF00;
+  opacity: 1;
+  margin-bottom: 0.5em;
   margin-left: 2.7vw;
   transition: opacity 0.3s ease, transform 0.3s ease;
   cursor: url('/images/curseur40.png') 0 0, pointer;
