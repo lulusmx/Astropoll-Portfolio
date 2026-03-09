@@ -1,6 +1,7 @@
 .ov {
   width: 100vw;
   height: 100vh;
+  min-height: 100vh;
   background: #fff;
   color: #1a1a1a;
   font-family: 'Myriad Pro', 'Segoe UI', Arial, sans-serif;
@@ -8,6 +9,7 @@
   display: flex;
   flex-direction: column;
   cursor: url('/images/curseur40.png') 0 0, auto;
+  overflow: hidden;
 }
 
 .ov__back {
@@ -32,11 +34,13 @@
   letter-spacing: 0.02em;
 }
 
-/* Colonne défilante */
+/* Zone scrollable */
 .ov__carousel {
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
   overflow-x: hidden;
-  flex: 1;
+  -webkit-overflow-scrolling: touch;
   display: flex;
   justify-content: center;
 }
@@ -44,8 +48,10 @@
 .ov__track {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 4vw;
   padding: 2vw 0 4vw;
+  width: 100%;
 }
 
 .ov__slide {
@@ -53,27 +59,61 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20vw;
+  width: clamp(200px, 42vw, 500px);
+  background: transparent;
+  transition: transform 0.35s ease;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+}
+
+.ov__slide:hover {
+  transform: scale(1.06);
+}
+
+.ov--idle .ov__slide {
+  animation: ov-drift var(--dur, 8s) ease-in-out var(--delay, 0s) infinite alternate;
+}
+
+.ov--idle .ov__slide:hover {
+  animation: none;
+  transform: scale(1.06);
+  opacity: 1;
+  filter: none;
+}
+
+@keyframes ov-drift {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  40% {
+    opacity: 0.55;
+    filter: blur(1.5px);
+  }
+  100% {
+    transform: translate(var(--tx, 12vw), var(--ty, -8vh)) rotate(var(--rot, 8deg)) scale(0.92);
+    opacity: 0.18;
+    filter: blur(4px);
+  }
 }
 
 .ov__slide-img {
   width: 100%;
-  aspect-ratio: 1;
+  height: clamp(180px, 36vw, 440px);
   display: flex;
   align-items: center;
   justify-content: center;
+  background: transparent;
 }
 
 .ov__slide-img img {
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
-}
-
-.ov__slide-label {
-  font-size: clamp(0.6rem, 0.8vw, 0.9rem);
-  color: #999;
-  margin-top: 0.5vw;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  pointer-events: none;
 }
 
 /* Scrollbar verticale */

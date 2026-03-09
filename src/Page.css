@@ -20,6 +20,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+  padding-bottom: 5rem;
 }
 
 .page--scrollable .page__content {
@@ -69,6 +70,24 @@
 
 .page__next:hover {
   color: #CDFF00;
+  transform: translateX(4px);
+}
+
+/* Bannière fixe en bas pour toutes les pages scrollables */
+.page--scrollable .page__next {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 1em 4vw 1.4em;
+  text-align: right;
+  background: #fff;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  z-index: 50;
+}
+
+.page--scrollable .page__next:hover {
   transform: translateX(4px);
 }
 
@@ -195,12 +214,7 @@
   }
 }
 
-.page--hirondelles .page__next {
-  position: fixed;
-  bottom: 2.5vw;
-  right: 4vw;
-  margin-top: 0;
-}
+/* hirondelles: Next géré par .page--scrollable .page__next */
 
 .page--hirondelles .page__content {
   min-height: 0;
@@ -360,6 +374,9 @@
 .page--clothes {
   padding: 0;
   position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .page--clothes .page__back--logo {
@@ -367,6 +384,7 @@
   top: 0;
   left: -3vw;
   margin: 0;
+  z-index: 2;
 }
 
 .page--clothes .page__back--logo img {
@@ -379,51 +397,98 @@
   transform: scale(1.02);
 }
 
-/* Page Clothes : colonne de photos à droite, max moitié écran */
-.page__content--clothes {
-  margin-top: 10vw;
-  padding: 2vw 3vw 4vw 0;
-  align-items: flex-end;
-  max-width: 100%;
-  flex: 0 0 auto;
-}
-
-.page__clothes-col {
+/* Carousel horizontal avec aperçus floutés */
+.page__clothes-slider {
   display: flex;
-  flex-direction: column;
-  gap: 2vw;
+  align-items: center;
+  justify-content: center;
+  padding: 22vw 0 3rem;
   width: 100%;
-  max-width: 50vw;
-  margin-left: auto;
+  overflow: hidden;
+  gap: 0;
 }
 
-.page__clothes-item {
-  width: 100%;
+/* Zone centrale : flèches + item actif */
+.page__clothes-slider-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5vw;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+/* Item actif */
+.page__clothes-slider-item--active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(200px, 38vw, 480px);
+  height: clamp(220px, 52vh, 600px);
+  animation: clothes-fade 0.35s ease;
+}
+
+/* Items latéraux floutés */
+.page__clothes-slider-item--side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(80px, 14vw, 180px);
+  height: clamp(180px, 44vh, 520px);
+  flex-shrink: 0;
+  filter: blur(5px);
+  opacity: 0.45;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+  transition: opacity 0.2s ease;
   overflow: hidden;
 }
 
-.page__clothes-item:nth-child(5) {
-  margin-top: 4vw;
+.page__clothes-slider-item--side:hover {
+  opacity: 0.65;
 }
 
-.page__clothes-item img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  transition: transform 0.3s ease;
+.page__clothes-slider-item--left {
+  margin-right: -2vw;
 }
 
-.page__clothes-item:hover img {
-  transform: scale(1.05);
+.page__clothes-slider-item--right {
+  margin-left: -2vw;
 }
 
-.page__clothes-item--white-bg {
+.page__clothes-slider-item--white {
   background: #fff;
+  padding: 1vw;
 }
 
-.page__clothes-item--white-bg img {
-  filter: brightness(1.12);
+.page__clothes-slider-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+}
+
+@keyframes clothes-fade {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.page__clothes-slider-arrow {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  color: #1a1a1a;
+  padding: 0.3em 0.6em;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+  line-height: 1;
+  z-index: 3;
+}
+
+.page__clothes-slider-arrow:hover {
+  color: #CDFF00;
+  transform: scale(1.15);
 }
 
 /* Page Inner : titre à droite (plus petit), catégories à gauche */
@@ -470,10 +535,26 @@
   to   { transform: rotate(360deg); }
 }
 
+.page__inner-ancre {
+  position: absolute;
+  bottom: -2vw;
+  right: 1vw;
+  width: clamp(220px, 32vw, 420px);
+  height: auto;
+  pointer-events: all;
+  z-index: 1;
+  mix-blend-mode: multiply;
+  transition: filter 0.4s ease;
+}
+
+.page__inner-ancre:hover {
+  filter: brightness(1.15) drop-shadow(0 0 18px rgba(205, 255, 0, 0.55)) drop-shadow(0 0 6px rgba(205, 255, 0, 0.3));
+}
+
 .page__inner-embleme {
   position: absolute;
-  bottom: 8vw;
-  right: 8vw;
+  bottom: 4vw;
+  left: 4vw;
   z-index: 1;
   line-height: 0;
   padding: 0;
@@ -484,7 +565,7 @@
 
 .page__inner-embleme img {
   display: block;
-  width: clamp(80px, 12vw, 180px);
+  width: clamp(60px, 9vw, 130px);
   height: auto;
 }
 
@@ -621,6 +702,82 @@
   margin: 0;
   font-size: clamp(1rem, 1.2vw, 1.25rem);
   line-height: 1.5;
+}
+
+/* Page CV + Contact */
+.page--contact .page__content--contact {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8vw 4vw 6vw;
+  min-height: 0;
+  perspective: 1200px;
+}
+
+.page__cv-img {
+  width: clamp(220px, 38vw, 480px);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+  transition: transform 0.4s ease-out;
+  transform-origin: center center;
+}
+
+.page__cv-img:hover {
+  animation: page__cv-float 2.5s ease-in-out infinite;
+}
+
+@keyframes page__cv-float {
+  0%, 100% {
+    transform: scale(1.05) translateY(0) rotate(-0.5deg) rotateX(4deg) rotateY(-2deg);
+  }
+  25% {
+    transform: scale(1.06) translateY(-4px) rotate(0.8deg) rotateX(-3deg) rotateY(4deg);
+  }
+  50% {
+    transform: scale(1.05) translateY(2px) rotate(-0.3deg) rotateX(3deg) rotateY(-3deg);
+  }
+  75% {
+    transform: scale(1.06) translateY(-2px) rotate(0.6deg) rotateX(-4deg) rotateY(2deg);
+  }
+}
+
+.page__cv-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4vw;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  cursor: url('/images/curseur40.png') 0 0, pointer;
+  perspective: 1000px;
+}
+
+.page__cv-img-expanded {
+  max-width: 92vw;
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  animation: page__cv-sway 4s ease-in-out infinite;
+}
+
+@keyframes page__cv-sway {
+  0%, 100% {
+    transform: translateY(0) rotate(-0.4deg) rotateX(5deg) rotateY(-3deg);
+  }
+  33% {
+    transform: translateY(-6px) translateX(4px) rotate(0.5deg) rotateX(-4deg) rotateY(5deg);
+  }
+  66% {
+    transform: translateY(3px) translateX(-3px) rotate(-0.3deg) rotateX(4deg) rotateY(-2deg);
+  }
 }
 
 /* Grille galerie iPhone — 5 photos par ligne */

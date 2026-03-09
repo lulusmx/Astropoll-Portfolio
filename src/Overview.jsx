@@ -1,27 +1,79 @@
+import { useState, useEffect, useRef } from 'react'
 import './Overview.css'
 
-const logos = [
-  { src: '/images/logo-b1.png', label: 'B1 — 1:1' },
-  { src: '/images/logo-b2.png', label: 'B2 — 1:1' },
-  { src: '/images/logo-b4.png', label: 'B4 — 1:1' },
-  { src: '/images/logo-b3.png', label: 'B3 — 1:1' },
+const overviewItems = [
+  { src: '/images/overview-1-hirondelles-airport.png', label: 'Hirondelles Airport' },
+  { src: '/images/overview-we-our-children.png', label: 'Ride Carefully' },
+  { src: '/images/overview-fleches-direction.png', label: 'Direction' },
+  { src: '/images/overview-direction-fire.png', label: 'Arrondeille Fire Dept' },
+  { src: '/images/overview-hirondelles-fire.png', label: 'Hirondelles Fire Dept' },
+  { src: '/images/overview-main-st-hirondelles.png', label: 'H Main St' },
+  { src: '/images/overview-h-square.png', label: 'H Square' },
+  { src: '/images/overview-roue-moto.png', label: 'Roue moto' },
+  { src: '/images/overview-emblem-ailes.png', label: 'Emblem ailes' },
+  { src: '/images/overview-lirondelles.png', label: 'Lirondelles' },
+  { src: '/images/overview-a-stylise.png', label: 'A stylisé' },
+  { src: '/images/overview-avion.png', label: 'Avion' },
+  { src: '/images/overview-big-board.png', label: 'The Big Board' },
+  { src: '/images/overview-for-free-ppl.png', label: 'For Free PPL' },
+  { src: '/images/overview-avenue-hirondelles.png', label: 'Avenue des Hirondelles' },
+  { src: '/images/overview-roue-rotiform.png', label: 'Roue Rotiform' },
 ]
 
+// Dérive douce et désintégration légère par item
+const flyProps = overviewItems.map(() => ({
+  tx: `${(Math.random() - 0.5) * 28}vw`,
+  ty: `${(Math.random() - 0.5) * 22}vh`,
+  rot: `${(Math.random() - 0.5) * 30}deg`,
+  dur: `${5 + Math.random() * 5}s`,
+  delay: `${Math.random() * 3}s`,
+}))
+
+const IDLE_DELAY = 4000
+
 function Overview({ onBack, onNavigate }) {
+  const [idle, setIdle] = useState(false)
+  const timerRef = useRef(null)
+
+  const resetIdle = () => {
+    setIdle(false)
+    clearTimeout(timerRef.current)
+    timerRef.current = setTimeout(() => setIdle(true), IDLE_DELAY)
+  }
+
+  useEffect(() => {
+    const events = ['mousemove', 'keydown', 'touchstart', 'scroll', 'click']
+    events.forEach(e => window.addEventListener(e, resetIdle))
+    timerRef.current = setTimeout(() => setIdle(true), IDLE_DELAY)
+    return () => {
+      events.forEach(e => window.removeEventListener(e, resetIdle))
+      clearTimeout(timerRef.current)
+    }
+  }, [])
+
   return (
-    <div className="ov">
+    <div className={`ov${idle ? ' ov--idle' : ''}`}>
       <button type="button" className="ov__back" onClick={onBack}>
         OVERVIEW
       </button>
 
       <div className="ov__carousel">
         <div className="ov__track">
-          {logos.map(({ src, label }) => (
-            <div className="ov__slide" key={label}>
+          {overviewItems.map(({ src, label }, i) => (
+            <div
+              className="ov__slide"
+              key={`${label}-${i}`}
+              style={{
+                '--tx': flyProps[i].tx,
+                '--ty': flyProps[i].ty,
+                '--rot': flyProps[i].rot,
+                '--dur': flyProps[i].dur,
+                '--delay': flyProps[i].delay,
+              }}
+            >
               <div className="ov__slide-img">
                 <img src={src} alt={label} draggable={false} />
               </div>
-              <span className="ov__slide-label">{label}</span>
             </div>
           ))}
         </div>

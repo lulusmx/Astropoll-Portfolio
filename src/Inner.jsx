@@ -42,6 +42,7 @@ function Inner({ onBack, navLinks = [], onNavigate, formattedTime }) {
       >
         <img src="/images/embleme-inner.png" alt="" draggable={false} />
       </button>
+      <img src="/images/ancre.png" alt="" className="page__inner-ancre" draggable={false} />
       <div className="page__content page__content--inner">
         {/* Gauche : catégories */}
         <nav className="page__inner-nav">

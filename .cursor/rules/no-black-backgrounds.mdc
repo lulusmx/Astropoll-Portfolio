@@ -1,0 +1,15 @@
+---
+description: Éviter les fonds noirs lors de l'ajout d'images ou d'éléments
+globs: src/**/*.{jsx,tsx,css}
+alwaysApply: false
+---
+
+# Pas de fond noir
+
+Lors de l'ajout d'images ou d'éléments visuels au portfolio :
+
+1. **Images** : Préférer des images avec fond transparent (PNG) ou fond blanc. Si une image a un fond noir intégré, ajouter la prop `noBlackBg: true` et la classe `ov__slide-img--no-black` (ou équivalent) pour appliquer `mix-blend-mode: lighten` afin de faire disparaître le noir sur fond blanc.
+
+2. **CSS** : Ne jamais ajouter `background: black`, `background: #000` ou fond sombre sur les conteneurs d'images. Utiliser `background: transparent` ou `background: #fff` selon le contexte.
+
+3. **Overview** : Pour les slides avec fond noir dans l'image source, utiliser le modificateur `noBlackBg` dans overviewItems.

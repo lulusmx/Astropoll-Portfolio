@@ -64,7 +64,7 @@ function App() {
   if (page === 'clothes') return <Clothes onBack={goBackRandom} onNavigate={setPage} />
   if (page === 'project') return <Project onBack={goBackRandom} onNavigate={setPage} />
   if (page === 'future-project') return <FutureProject onBack={() => setPage('project')} onNavigate={setPage} />
-  if (page === 'contact') return <Contact onBack={goBackRandom} />
+  if (page === 'contact') return <Contact onBack={goBackRandom} onNavigate={setPage} />
 
   return (
     <main className="homepage">
